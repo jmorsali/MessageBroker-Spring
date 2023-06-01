@@ -24,12 +24,11 @@ public class DailyReportGeneratorJob implements Job {
         var productCodeRepository = applicationContext.getBean(ProductCodeRepository.class);
 
         try {
-            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-            var today = formatter.format(new Date());
+            var today = new Date();
             List<DailyReport> todayReportItems = dailyReportRepository.getDailyReport(today);
 
             if (todayReportItems.isEmpty()) {
-                var codeListCodeReportItems = productCodeRepository.getCodeListCodeReport(today);
+                var codeListCodeReportItems = productCodeRepository.getCodeListCodeReport();
                 for (var item : codeListCodeReportItems) {
                     var reportItem = new DailyReport();
                     reportItem.setReportDate(today);

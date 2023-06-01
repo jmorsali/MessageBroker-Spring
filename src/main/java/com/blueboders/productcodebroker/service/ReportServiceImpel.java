@@ -5,6 +5,7 @@ import com.blueboders.productcodebroker.repository.DailyReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -18,7 +19,7 @@ public class ReportServiceImpel  implements ReportService{
     }
 
     @Override
-    public List<DailyReportDto> getDailyReport(String reportDate) {
+    public List<DailyReportDto> getDailyReport(Date reportDate) {
        var reportList= dailyReportRepository.getDailyReport(reportDate);
        return DailyReportDto.ToDto(reportList);
     }

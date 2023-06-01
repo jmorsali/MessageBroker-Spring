@@ -3,11 +3,12 @@ package com.blueboders.productcodebroker.dtos;
 import com.blueboders.productcodebroker.entity.DailyReport;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DailyReportDto {
     Long id;
-    String reportDate;
+    Date reportDate;
     String codeListCode;
     Integer TotalItemCount;
 
@@ -37,11 +38,11 @@ public class DailyReportDto {
         this.id = id;
     }
 
-    public String getReportDate() {
+    public Date getReportDate() {
         return reportDate;
     }
 
-    public void setReportDate(String reportDate) {
+    public void setReportDate(Date reportDate) {
         this.reportDate = reportDate;
     }
 

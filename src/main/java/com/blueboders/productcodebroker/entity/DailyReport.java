@@ -5,13 +5,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.util.Date;
+
 @Entity
 public class DailyReport {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String reportDate;
+    Date reportDate;
     String codeListCode;
     Integer TotalItemCount;
 
@@ -23,11 +25,11 @@ public class DailyReport {
         this.id = id;
     }
 
-    public String getReportDate() {
+    public Date getReportDate() {
         return reportDate;
     }
 
-    public void setReportDate(String reportDate) {
+    public void setReportDate(Date reportDate) {
         this.reportDate = reportDate;
     }
 

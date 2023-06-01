@@ -1,13 +1,17 @@
 package com.blueboders.productcodebroker.controller;
 
+import com.blueboders.productcodebroker.dtos.PageResult;
 import com.blueboders.productcodebroker.dtos.ProductCodeDto;
 import com.blueboders.productcodebroker.service.CSVFileService;
 import com.blueboders.productcodebroker.service.ProductCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -45,9 +49,12 @@ public class ProductCodeController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<ProductCodeDto>> getAllProductCode() {
+    public ResponseEntity<PageResult<ProductCodeDto>> getAllProductCode(@RequestParam(defaultValue = "0") int page,
+                                                                        @RequestParam(defaultValue = "10") int size,
+                                                                        @RequestParam(defaultValue = "codeListCode") String sortBy) {
         try {
-            var result = productCodeService.getAllProductCode();
+            var pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC,sortBy));
+            var result = productCodeService.getAllProductCode(pageable);
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
