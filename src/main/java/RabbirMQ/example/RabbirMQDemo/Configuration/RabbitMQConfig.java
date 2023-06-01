@@ -1,6 +1,6 @@
 package RabbirMQ.example.RabbirMQDemo.Configuration;
 
-import RabbirMQ.example.RabbirMQDemo.Service.MessageConsumer;
+import RabbirMQ.example.RabbirMQDemo.Component.MessageConsumer_Q1;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
@@ -11,9 +11,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-    private static final String QUEUE_NAME = "wallet-queue";
-    private static final String EXCHANGE_NAME = "wallet-exchange";
-    private static final String ROUTING_KEY = "wallet.*.*";
+    public static final String QUEUE_NAME = "wallet-queue";
+    public static final String EXCHANGE_NAME = "wallet-exchange";
+    public static final String ROUTING_KEY = "wallet.*.*";
 
     @Bean
     public Queue queue() {
@@ -31,7 +31,7 @@ public class RabbitMQConfig {
     }
 
     @Autowired
-    private MessageConsumer messageConsumer;
+    private MessageConsumer_Q1 messageConsumer;
 
     @Autowired
     private ConnectionFactory connectionFactory;

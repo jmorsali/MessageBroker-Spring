@@ -7,7 +7,8 @@ import java.util.List;
 
 
 public interface MessageService {
-    Boolean Push(MessageDto messageDto);
+
+    void Push(String message);
 
     BrokerMessage Consume();
 

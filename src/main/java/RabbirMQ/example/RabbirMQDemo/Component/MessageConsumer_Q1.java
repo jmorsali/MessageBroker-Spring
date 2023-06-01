@@ -1,4 +1,4 @@
-package RabbirMQ.example.RabbirMQDemo.Service;
+package RabbirMQ.example.RabbirMQDemo.Component;
 
 import RabbirMQ.example.RabbirMQDemo.Entity.BrokerMessage;
 import RabbirMQ.example.RabbirMQDemo.Repository.MessageBrokerRepository;
@@ -8,12 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MessageConsumer implements MessageListener {
+public class MessageConsumer_Q1 implements MessageListener {
 
     private final MessageBrokerRepository messageBrokerRepository;
 
     @Autowired
-    public MessageConsumer(MessageBrokerRepository messageBrokerRepository) {
+    public MessageConsumer_Q1(MessageBrokerRepository messageBrokerRepository) {
         this.messageBrokerRepository = messageBrokerRepository;
     }
 

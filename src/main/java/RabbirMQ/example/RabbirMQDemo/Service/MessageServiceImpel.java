@@ -1,7 +1,7 @@
 package RabbirMQ.example.RabbirMQDemo.Service;
 
 
-import RabbirMQ.example.RabbirMQDemo.DTOs.MessageDto;
+import RabbirMQ.example.RabbirMQDemo.Configuration.RabbitMQConfig;
 import RabbirMQ.example.RabbirMQDemo.Entity.BrokerMessage;
 import RabbirMQ.example.RabbirMQDemo.Repository.MessageBrokerRepository;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -19,13 +19,8 @@ public class MessageServiceImpel implements MessageService {
     }
 
     @Override
-    public Boolean Push(MessageDto messageDto) {
-        try {
-            amqpTemplate.convertAndSend(messageDto.getExchangeName(),messageDto.getRoutingKey(), messageDto.getMessageBody());
-            return true;
-        }catch(Exception exception){
-            return false;
-        }
+    public void Push(String message) {
+        amqpTemplate.convertAndSend(RabbitMQConfig.EXCHANGE_NAME, RabbitMQConfig.ROUTING_KEY, message);
     }
 
     @Override
