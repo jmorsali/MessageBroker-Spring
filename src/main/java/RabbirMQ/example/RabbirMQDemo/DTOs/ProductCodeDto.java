@@ -26,6 +26,7 @@ public class ProductCodeDto {
    }
    public static ProductCodeDto ToDto(ProductCode codeItem) {
       var codeDtoItem = new ProductCodeDto();
+      codeDtoItem.setId(codeItem.getId());
       codeDtoItem.setCode(codeItem.getCode());
       codeDtoItem.setDisplayValue(codeItem.getDisplayValue());
       codeDtoItem.setSource(codeItem.getSource());
@@ -46,6 +47,7 @@ public class ProductCodeDto {
 
    public static ProductCode ToEntity(ProductCodeDto codeDtoItem) {
       var codeItem = new ProductCode();
+      codeItem.setId(codeDtoItem.getId());
       codeItem.setCode(codeDtoItem.getCode());
       codeItem.setDisplayValue(codeDtoItem.getDisplayValue());
       codeItem.setSource(codeDtoItem.getSource());
