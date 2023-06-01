@@ -6,15 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductCodeDto {
-   Long id;
-   String source;
-   String codeListCode;
-   String code;
-   String displayValue;
-   String longDescription;
-   String fromDate;
-   String toDate;
-   String sortingPriority;
+   private Long id;
+   private String source;
+   private  String codeListCode;
+   private  String code;
+   private  String displayValue;
+   private  String longDescription;
+   private  String fromDate;
+   private  String toDate;
+   private  String sortingPriority;
 
    public static List<ProductCodeDto> ToDto(List<ProductCode> codeItems) {
       var result = new ArrayList<ProductCodeDto>();

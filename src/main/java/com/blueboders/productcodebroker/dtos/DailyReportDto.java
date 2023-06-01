@@ -7,22 +7,22 @@ import java.util.Date;
 import java.util.List;
 
 public class DailyReportDto {
-    Long id;
-    Date reportDate;
-    String codeListCode;
-    Integer TotalItemCount;
+    private Long id;
+    private Date reportDate;
+    private String codeListCode;
+    private Integer TotalItemCount;
 
     public static List<DailyReportDto> ToDto(List<DailyReport> reportList) {
-        var result=new ArrayList<DailyReportDto>();
-        for (var report: reportList)
+        var result = new ArrayList<DailyReportDto>();
+        for (var report : reportList)
             result.add(ToDto(report));
         return result;
     }
 
     private static DailyReportDto ToDto(DailyReport report) {
-        if(report==null)
+        if (report == null)
             return null;
-        var reportDto=new DailyReportDto();
+        var reportDto = new DailyReportDto();
         reportDto.setId(report.getId());
         reportDto.setReportDate(report.getReportDate());
         reportDto.setCodeListCode(report.getCodeListCode());

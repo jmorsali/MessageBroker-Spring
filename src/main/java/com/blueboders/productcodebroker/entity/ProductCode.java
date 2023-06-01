@@ -14,6 +14,7 @@ public class ProductCode {
     private  String code;
     private  String displayValue;
 
+    @Column(columnDefinition = "nvarchar(MAX)")
     private  String longDescription;
     private String fromDate;
     private  String toDate;

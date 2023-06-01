@@ -27,7 +27,7 @@ public class QuartzConfig {
     public SimpleTrigger myTrigger(JobDetail myJobDetail) {
         SimpleTriggerFactoryBean factoryBean = new SimpleTriggerFactoryBean();
         factoryBean.setJobDetail(myJobDetail);
-        factoryBean.setRepeatInterval(10000); //*60*60 Interval in milliseconds
+        factoryBean.setRepeatInterval(20000); //*60*60 Interval in milliseconds
         factoryBean.setRepeatCount(SimpleTrigger.REPEAT_INDEFINITELY);
         factoryBean.afterPropertiesSet();
         return factoryBean.getObject();

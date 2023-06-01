@@ -12,10 +12,10 @@ public class DailyReport {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    Date reportDate;
-    String codeListCode;
-    Integer TotalItemCount;
+    private  Long id;
+    private  Date reportDate;
+    private  String codeListCode;
+    private   Integer TotalItemCount;
 
     public Long getId() {
         return id;
