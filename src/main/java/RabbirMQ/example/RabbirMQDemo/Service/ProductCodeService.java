@@ -9,4 +9,6 @@ public interface ProductCodeService {
     ProductCodeDto getProductCodeByCode(String code);
 
     void deleteAllProductCode();
+
+    void saveAllProductCode(List<ProductCodeDto> codeDtoItems);
 }

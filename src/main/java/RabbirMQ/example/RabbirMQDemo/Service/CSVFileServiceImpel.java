@@ -1,7 +1,6 @@
 package RabbirMQ.example.RabbirMQDemo.Service;
 
 import RabbirMQ.example.RabbirMQDemo.DTOs.ProductCodeDto;
-import RabbirMQ.example.RabbirMQDemo.Entity.ProductCode;
 import RabbirMQ.example.RabbirMQDemo.Repository.ProductCodeRepository;
 import com.opencsv.bean.CsvToBeanBuilder;
 import org.springframework.stereotype.Service;
@@ -19,14 +18,12 @@ public class CSVFileServiceImpel implements CSVFileService {
     }
 
     @Override
-    public void processFile(String csvData) {
+    public List<ProductCodeDto> processFile(String csvData) {
 
         List<ProductCodeDto> codesDtoItem = new CsvToBeanBuilder(new StringReader(csvData))
                 .withType(ProductCodeDto.class)
                 .build()
                 .parse();
-        List<ProductCode> codesItem = ProductCodeDto.ToEntity(codesDtoItem);
-        productCodeRepository.saveAll(codesItem);
-
+        return codesDtoItem;
     }
 }

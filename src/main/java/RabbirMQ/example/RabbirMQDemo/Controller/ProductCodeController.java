@@ -33,7 +33,8 @@ public class ProductCodeController {
             byte[] bytes = file.getBytes();
             String csvData = new String(bytes);
             try {
-                csvFileService.processFile(csvData);
+                var productDtoCodes = csvFileService.processFile(csvData);
+                productCodeService.saveAllProductCode(productDtoCodes);
                 return new ResponseEntity<>("File uploaded successfully", HttpStatus.OK);
             } catch (Exception e) {
                 return new ResponseEntity<>("UnHandled error during file process ::>" + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

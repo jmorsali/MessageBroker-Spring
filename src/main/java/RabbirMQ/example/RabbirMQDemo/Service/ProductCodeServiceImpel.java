@@ -1,6 +1,7 @@
 package RabbirMQ.example.RabbirMQDemo.Service;
 
 import RabbirMQ.example.RabbirMQDemo.DTOs.ProductCodeDto;
+import RabbirMQ.example.RabbirMQDemo.Entity.ProductCode;
 import RabbirMQ.example.RabbirMQDemo.Repository.ProductCodeRepository;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +29,11 @@ public class ProductCodeServiceImpel implements  ProductCodeService {
     @Override
     public void deleteAllProductCode() {
         productCodeRepository.deleteAll();
+    }
+
+    @Override
+    public void saveAllProductCode(List<ProductCodeDto> codeDtoItems){
+        List<ProductCode> codesItem = ProductCodeDto.ToEntity(codeDtoItems);
+        productCodeRepository.saveAll(codesItem);
     }
 }
