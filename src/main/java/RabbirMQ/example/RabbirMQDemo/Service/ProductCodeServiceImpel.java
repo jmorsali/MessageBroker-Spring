@@ -32,13 +32,17 @@ public class ProductCodeServiceImpel implements  ProductCodeService {
     }
 
     @Override
-    public void saveAllProductCode(List<ProductCodeDto> codeDtoItems){
-        List<ProductCode> codesItem = ProductCodeDto.ToEntity(codeDtoItems);
-        productCodeRepository.saveAll(codesItem);
+    public void saveAllProductCode(List<ProductCodeDto> productCodeDtoItems){
+        List<ProductCode> productCodeItems = ProductCodeDto.ToEntity(productCodeDtoItems);
+        for (var productCode: productCodeItems) {
+            if (productCodeRepository.getByCode(productCode.getCode()) == null)
+                productCodeRepository.save(productCode);
+        }
     }
 
     @Override
     public void saveProductCode(ProductCode productCode) {
-        productCodeRepository.save(productCode);
+        if (productCodeRepository.getByCode(productCode.getCode()) == null)
+            productCodeRepository.save(productCode);
     }
 }

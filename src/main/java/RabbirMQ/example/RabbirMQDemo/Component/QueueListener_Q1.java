@@ -1,11 +1,7 @@
 package RabbirMQ.example.RabbirMQDemo.Component;
 
-import RabbirMQ.example.RabbirMQDemo.DTOs.ProductCodeDto;
 import RabbirMQ.example.RabbirMQDemo.Service.CSVFileService;
-import RabbirMQ.example.RabbirMQDemo.Service.MessageService;
 import RabbirMQ.example.RabbirMQDemo.Service.ProductCodeService;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

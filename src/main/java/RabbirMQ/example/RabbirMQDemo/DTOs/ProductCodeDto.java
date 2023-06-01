@@ -24,7 +24,10 @@ public class ProductCodeDto {
       }
       return result;
    }
+
    public static ProductCodeDto ToDto(ProductCode codeItem) {
+      if (codeItem == null)
+         return null;
       var codeDtoItem = new ProductCodeDto();
       codeDtoItem.setId(codeItem.getId());
       codeDtoItem.setCode(codeItem.getCode());
@@ -37,6 +40,7 @@ public class ProductCodeDto {
       codeDtoItem.setLongDescription(codeItem.getLongDescription());
       return codeDtoItem;
    }
+
    public static List<ProductCode> ToEntity(List<ProductCodeDto> codeDtoItems) {
       var result = new ArrayList<ProductCode>();
       for (var codeDtoItem : codeDtoItems) {
@@ -46,6 +50,8 @@ public class ProductCodeDto {
    }
 
    public static ProductCode ToEntity(ProductCodeDto codeDtoItem) {
+      if (codeDtoItem == null)
+         return null;
       var codeItem = new ProductCode();
       codeItem.setId(codeDtoItem.getId());
       codeItem.setCode(codeDtoItem.getCode());
@@ -66,6 +72,7 @@ public class ProductCodeDto {
    public void setId(Long id) {
       this.id = id;
    }
+
    public String getSource() {
       return source;
    }
