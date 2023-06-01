@@ -36,4 +36,9 @@ public class ProductCodeServiceImpel implements  ProductCodeService {
         List<ProductCode> codesItem = ProductCodeDto.ToEntity(codeDtoItems);
         productCodeRepository.saveAll(codesItem);
     }
+
+    @Override
+    public void saveProductCode(ProductCode productCode) {
+        productCodeRepository.save(productCode);
+    }
 }
