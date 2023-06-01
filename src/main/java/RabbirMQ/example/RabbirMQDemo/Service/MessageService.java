@@ -15,9 +15,4 @@ public interface MessageService {
 
     void Push_Q3(ProductCodeDto productCodeDto);
 
-    BrokerMessage Consume();
-
-    List<BrokerMessage> ConsumeAll();
-
-
 }

@@ -42,14 +42,4 @@ public class MessageServiceImpel implements MessageService {
         }
 
     }
-
-    @Override
-    public BrokerMessage Consume() {
-       return messageBrokerRepository.getLastMessage().stream().findFirst().orElse(null);
-    }
-
-    @Override
-    public List<BrokerMessage> ConsumeAll() {
-        return messageBrokerRepository.findAll().stream().toList();
-    }
 }

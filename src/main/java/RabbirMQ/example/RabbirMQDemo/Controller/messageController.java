@@ -59,16 +59,4 @@ public class messageController {
         }
     }
 
-
-    @GetMapping("consume/last")
-    public ResponseEntity<BrokerMessage> ConsumeLast() {
-        var result = messageService.Consume();
-        return ResponseEntity.ok(result);
-    }
-
-    @GetMapping("consume/all")
-    public ResponseEntity<List<BrokerMessage>> ConsumeAll() {
-        var results = messageService.ConsumeAll();
-        return ResponseEntity.ok(results);
-    }
 }
