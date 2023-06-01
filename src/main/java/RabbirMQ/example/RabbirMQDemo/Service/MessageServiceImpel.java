@@ -3,22 +3,16 @@ package RabbirMQ.example.RabbirMQDemo.Service;
 
 import RabbirMQ.example.RabbirMQDemo.Configuration.RabbitMQConfig;
 import RabbirMQ.example.RabbirMQDemo.DTOs.ProductCodeDto;
-import RabbirMQ.example.RabbirMQDemo.Entity.BrokerMessage;
-import RabbirMQ.example.RabbirMQDemo.Repository.MessageBrokerRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class MessageServiceImpel implements MessageService {
     private final AmqpTemplate amqpTemplate;
-    private final MessageBrokerRepository  messageBrokerRepository;
-    public MessageServiceImpel(AmqpTemplate amqpTemplate, MessageBrokerRepository messageBrokerRepository) {
+    public MessageServiceImpel(AmqpTemplate amqpTemplate) {
         this.amqpTemplate = amqpTemplate;
-        this.messageBrokerRepository = messageBrokerRepository;
     }
 
     @Override
